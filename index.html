@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<p>Mettiti le cuffie...</p>
+	<button id="btnInizia" type="button">Inizia</button>
+	<script src="./paho-mqtt.js" type="text/javascript"></script>
+	<script src="jquery-3.3.1.js"></script>
+	<script>
+
+		// parameters MQTT
+		var host = 'm24.cloudmqtt.com';
+		var user = 'txyosdvw';
+		var psw = 'fM6R-UZSkeN3';
+		var port = 38333;
+		var canale = 'caronte_tablet';
+		var clientId = 'tablet';
+
+		// costanti
+		var client = null;
+
+		// testi
+		const MESSAGGIO_CONNESSIONE_AVVENUTA = 'Connessione avvenuta con successo';
+		const MESSAGGIO_CONNESSIONE_FALLITA = 'Connessione fallita';
+
+		function start(){
+
+			client = new Paho.Client(host, port, "/ws", clientId);
+    		//client.onMessageArrived = arrivoMessaggio;
+    		client.onConnectionLost = onConnectionLost;
+    		client.onMessageDelivered = onMessageDelivered;
+    		var options = {
+    			userName: user,
+    			password: psw,
+    			onSuccess: onConnect,
+    			onFailure: doFail,
+    			useSSL: true,
+    			reconnect: true
+    		}
+    		client.connect(options);
+    	}
+
+    	function onConnectionLost(responseObject) {
+    		console.log(responseObject)
+    		if (responseObject.errorCode !== 0) {
+    			console.log("onConnectionLost:"+responseObject.errorMessage);
+    		}
+    	}
+
+    	function onConnect() {
+    		client.subscribe('caronte_tablet');
+    		sendMessage( clientId, 'tablet-index' )
+            
+    		console.log(MESSAGGIO_CONNESSIONE_AVVENUTA);
+    	}
+
+    	function doFail( error ) {
+    		console.log(MESSAGGIO_CONNESSIONE_FALLITA);
+    		console.log(error);
+    	}
+
+    	function onMessageDelivered( message ){
+            console.log('message delivered')
+    	}
+
+    	function sendMessage( clientId, message ) {
+    		if( !client.isConnected() )
+				return;
+
+			var messaggio = new Paho.Message(message);
+			messaggio.destinationName = canale;
+			client.send(messaggio);
+		}
+
+		$(document).ready(function(){
+
+			start();
+
+			$('#btnInizia').on('click', function(){
+                window.location.href = './test.html'
+			})
+		})
+	</script>
+</body>
+</html>

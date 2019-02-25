@@ -1,0 +1,91 @@
+@font-face {
+    font-family: 'AvenirLTStdBook';
+    src: url('../fonts/AvenirLTStd-Book.otf');
+}
+@font-face {
+    font-family: 'AvenirLTStdLight';
+    src: url('../fonts/AvenirLTStd-Light.otf');
+}
+@font-face {
+    font-family: 'AvenirLTStdHeavy';
+    src: url('../fonts/AvenirLTStd-Heavy.otf');
+}
+
+body{
+	background-color: #3d3d3d;
+}
+
+.logo {
+	position: absolute;
+	bottom: 10%;
+	left: 50%;
+	width: 80px;
+	transform: translateX(-50%);
+}
+
+.logo img{
+	position: relative;
+	width: 100%;
+}
+
+.testo {
+	text-align: center;
+	padding-top: 3%;
+	font-family: 'AvenirLTStdBook', sans-serif;
+	font-size: 25px;
+	color: #dfd4ca
+}
+
+.domanda .two-questions{
+	/*position: absolute;
+    display: block;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 45%;*/
+}
+
+.domanda .three-questions{
+	/*position: absolute;
+    display: block;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 45%;*/
+}
+
+.ui-btn{
+	background-color: #dfd4ca;
+	height: 80px;
+	width: 230px;
+	cursor: pointer;
+	text-align: center;
+	color: #3d3d3d;
+	font-family: 'AvenirLTStdHeavy', sans-serif;
+	font-size: 21px;
+	line-height: 85px;
+}
+
+.ui-btn:active{
+	opacity: 0.7;
+}
+
+.two-btn{
+	position: absolute;
+	top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.three-btn{
+	position: absolute;
+	top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/*.domanda .btn-1{
+	margin-right: 50px;
+}
+
+.domanda .three-questions .btn-2{
+	margin-right: 50px;
+}*/

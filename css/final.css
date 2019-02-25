@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'AvenirLTStdBook';
+    src: url('../fonts/AvenirLTStd-Book.otf');
+}
+@font-face {
+    font-family: 'AvenirLTStdLight';
+    src: url('../fonts/AvenirLTStd-Light.otf');
+}
+@font-face {
+    font-family: 'AvenirLTStdHeavy';
+    src: url('../fonts/AvenirLTStd-Heavy.otf');
+}
+
+.container-risultato{
+	display: none;
+}
+
+.container-risultato .testo {
+	text-align: center;
+	padding-top: 3%;
+	font-family: 'AvenirLTStdBook', sans-serif;
+	font-size: 25px;
+	color: #dfd4ca
+}
+
+.container-risultato .testo-2 {
+	position: relative;
+	top: 50px;
+	text-align: center;
+	font-family: 'AvenirLTStdBook', sans-serif;
+	font-size: 25px;
+	color: #dfd4ca
+}
+
+.container-risultato .result-box img{
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 120px;
+	height: 120px;
+}
+
+.container-risultato .result-box .title-ending{
+	position: relative;
+	color: #dfd4ca;
+	text-align: center;
+	font-family: 'AvenirLTStdHeavy', sans-serif;
+	font-size: 14px;
+	letter-spacing: 3px;
+}
+
+.container-risultato .result-box .desc-ending{
+	position: relative;
+	top: -8px;
+	color: #dfd4ca;
+	text-align: center;
+	font-family: 'AvenirLTStdLight', sans-serif;
+	font-size: 12px;
+	letter-spacing: 2px;
+}
+
+.ending-shown{
+	display: block !important;
+}
